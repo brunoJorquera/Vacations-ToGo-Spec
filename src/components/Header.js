@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 
 import { Container } from "react-bootstrap";
 
-export default function Dashboard() {
+export default function Header() {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
   const history = useHistory();
