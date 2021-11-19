@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Alert } from "react-bootstrap";
+import { Button, Alert, DropdownButton, Dropdown } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import vtg from "../images/vtg-logo.svg";
@@ -24,19 +24,28 @@ export default function Header() {
     <div>
       <div className="header">
         <img className="vtg" src={vtg} alt="Vacations-ToGo" />
-        
+
         <div className="updatediv">
-          <strong>Email: {currentUser.email}</strong>
-          <Link to="/update-profile" className="btn btn-primary m-3">
-            Update profile
-          </Link>
-          <Button
-            className="btn btn-light"
-            variant="link"
-            onClick={handleLogout}
-          >
-            Sign out
-          </Button>
+          <DropdownButton id="dropdown-basic-button" title="Menu">
+            <Dropdown.Item id="menu" >
+              {" "}
+              <strong>Email: {currentUser.email}</strong>
+            </Dropdown.Item>
+            <Dropdown.Item id="menu" >
+              <Link to="/update-profile" className="btn btn-primary m-3">
+                Update profile
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item id="menu">
+              <Button
+                className="btn btn-light"
+                variant="link"
+                onClick={handleLogout}
+              >
+                Sign out
+              </Button>
+            </Dropdown.Item>
+          </DropdownButton>
           {error && <Alert variant="danger">{error}</Alert>}
         </div>
       </div>
