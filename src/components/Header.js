@@ -24,16 +24,19 @@ export default function Header() {
     <div>
       <div className="header">
         <img className="vtg" src={vtg} alt="Vacations-ToGo" />
+        
         <div className="updatediv">
-          <strong>Email: {currentUser.email}</strong> 
-          <div className="btn">
-          <Link to="/update-profile" className="btn btn-primary">
+          <strong>Email: {currentUser.email}</strong>
+          <Link to="/update-profile" className="btn btn-primary m-3">
             Update profile
           </Link>
-            <Button variant="link" onClick={handleLogout}>
-              Sign out
-            </Button>
-          </div>
+          <Button
+            className="btn btn-light"
+            variant="link"
+            onClick={handleLogout}
+          >
+            Sign out
+          </Button>
           {error && <Alert variant="danger">{error}</Alert>}
         </div>
       </div>

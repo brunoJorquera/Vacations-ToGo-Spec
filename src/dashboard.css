@@ -50,7 +50,8 @@
 .header {
   min-width: 95vw;
   min-height: 10vh;
-  background-color: white;
+  background-color: rgb(194, 194, 194);
+  box-shadow: black 5px 5px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,17 +60,17 @@
 .vtg {
   height: 8vh;
   margin-left: 2vw;
+  box-shadow: black 5px 4px 10px;
 }
 
 .vtg-open {
   height: 20vh;
-  border: solid whitesmoke;
-  box-shadow: black 10px 10px 10px;
 }
 
 .updatediv {
-  height: 10vh;
+  height: 8vh;
   width: 45vw;
+  margin-right: 2vw;
   display: flex;
   justify-content: flex-end;
   align-items: center;
