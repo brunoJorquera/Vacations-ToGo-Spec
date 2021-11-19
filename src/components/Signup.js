@@ -4,6 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
 import { Container } from "react-bootstrap";
+import vtg from "../images/vtg-logo.svg";
 
 export default function Signup() {
   const emailRef = useRef();
@@ -36,7 +37,8 @@ export default function Signup() {
   return (
     <Container className="logins">
       <div className="form w-50">
-        <Card>
+        <img className="vtg-open w-100 mb-4" src={vtg} alt="logo" />
+        <Card className="card">
           <Card.Body>
             <h2 className="text-center mb-4">Sign Up</h2>
             {error && <Alert variant="danger">{error}</Alert>}
@@ -63,7 +65,7 @@ export default function Signup() {
             </Form>
           </Card.Body>
         </Card>
-        <div className="w-100 text-center mt-2">
+        <div className="navbtn w-100 text-center mt-2">
           Already have an account? <Link to="/login">Log In</Link>
         </div>
       </div>

@@ -33,14 +33,44 @@
   display: flex;
   flex-direction: column;
   align-content: center;
+  justify-content: center;
 }
 
-.navbtn{
-    background-color: white;
+.card{
+  box-shadow: black 10px 5px 10px;
+
 }
 
-.header{
-    min-width:100vw;
-    min-height: 10vh;
-    background-color:white;
+.navbtn {
+  background-color: white;
+  box-shadow: black 10px 5px 10px;
+
+}
+
+.header {
+  min-width: 95vw;
+  min-height: 10vh;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vtg {
+  height: 8vh;
+  margin-left: 2vw;
+}
+
+.vtg-open {
+  height: 20vh;
+  border: solid whitesmoke;
+  box-shadow: black 10px 10px 10px;
+}
+
+.updatediv {
+  height: 10vh;
+  width: 45vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }

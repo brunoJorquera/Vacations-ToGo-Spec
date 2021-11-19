@@ -4,6 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link } from "react-router-dom";
 
 import { Container } from "react-bootstrap";
+import vtg from "../images/vtg-logo.svg";
 
 export default function ForgotPassword() {
   const emailRef = useRef();
@@ -31,7 +32,8 @@ export default function ForgotPassword() {
   return (
     <Container className="logins">
       <div className="form w-50">
-        <Card>
+        <img className="vtg-open w-100 mb-4" src={vtg} alt="logo" />
+        <Card className="card">
           <Card.Body>
             <h2 className="text-center mb-4">Password Reset</h2>
             {error && <Alert variant="danger">{error}</Alert>}
@@ -50,7 +52,7 @@ export default function ForgotPassword() {
             </div>
           </Card.Body>
         </Card>
-        <div className="w-100 text-center mt-2">
+        <div className="navbtn w-100 text-center mt-2">
           Need an account? <Link to="/signup">Sign Up</Link>
         </div>
       </div>

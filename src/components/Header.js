@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Card, Button, Alert } from "react-bootstrap";
+import { Button, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-
-import { Container } from "react-bootstrap";
+import vtg from "../images/vtg-logo.svg";
 
 export default function Header() {
   const [error, setError] = useState("");
@@ -22,24 +21,22 @@ export default function Header() {
   }
 
   return (
-    <Container className="dash">
-      <div>
-        <Card>
-          <Card.Body>
-            <h2 className="text-center mb-4">Profile</h2>
-            {error && <Alert variant="danger">{error}</Alert>}
-            <strong>Email: </strong> {currentUser.email}
-            <Link to="/update-profile" className="btn btn-primary w-100 mt-3">
-              Update profile
-            </Link>
-          </Card.Body>
-        </Card>
-        <div className="navbtn w-100 text-center mt-2">
-          <Button variant="link" onClick={handleLogout}>
-            Sign out
-          </Button>
+    <div>
+      <div className="header">
+        <img className="vtg" src={vtg} alt="Vacations-ToGo" />
+        <div className="updatediv">
+          <strong>Email: {currentUser.email}</strong> 
+          <div className="btn">
+          <Link to="/update-profile" className="btn btn-primary">
+            Update profile
+          </Link>
+            <Button variant="link" onClick={handleLogout}>
+              Sign out
+            </Button>
+          </div>
+          {error && <Alert variant="danger">{error}</Alert>}
         </div>
       </div>
-    </Container>
+    </div>
   );
 }
