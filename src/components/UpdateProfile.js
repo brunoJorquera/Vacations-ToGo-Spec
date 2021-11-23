@@ -1,9 +1,8 @@
 import React, { useRef, useState } from "react";
-import { Form, Button, Card, Alert } from "react-bootstrap";
+import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
-import { Container } from "react-bootstrap";
 import vtg from '../images/vtg-logo.svg'
 
 export default function UpdateProfile() {
@@ -78,7 +77,7 @@ export default function UpdateProfile() {
                   placeholder="password"
                 />
               </Form.Group>
-              <Button disabled={loading} className="w-100 mt-4" type="submit">
+              <Button disabled={loading} id="update-btn" className="w-100 mt-4" type="submit">
                 Update
               </Button>
             </Form>

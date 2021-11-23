@@ -31,20 +31,17 @@ export default function Header() {
               {" "}
               <strong>Email: {currentUser.email}</strong>
             </Dropdown.Item>
-            <Dropdown.Item id="menu" >
-              <Link to="/update-profile" className="btn btn-primary m-3">
+              <Link to="/update-profile" id="update" className="btn btn-primary m-3">
                 Update profile
               </Link>
-            </Dropdown.Item>
-            <Dropdown.Item id="menu">
               <Button
+                id="signout"
                 className="btn btn-light"
                 variant="link"
                 onClick={handleLogout}
               >
                 Sign out
               </Button>
-            </Dropdown.Item>
           </DropdownButton>
           {error && <Alert variant="danger">{error}</Alert>}
         </div>
