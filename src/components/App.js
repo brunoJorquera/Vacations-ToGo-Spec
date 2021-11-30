@@ -5,6 +5,7 @@ import Login from "./Login";
 import ForgotPassword from "./ForgotPassword";
 import UpdateProfile from "./UpdateProfile";
 import PrivateRoute from "./PrivateRoute";
+import FilterPage from './FilterPage'
 
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -20,6 +21,7 @@ const App = () => {
               <Switch>
                 <PrivateRoute exact path="/" component={Dashboard}/>
                 <PrivateRoute exact path="/update-profile" component={UpdateProfile}/>
+                <PrivateRoute exact path="/filter" component={FilterPage}/>
 
                 <Route path="/signup" component={Signup} />
                 <Route path="/login" component={Login} />

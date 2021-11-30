@@ -8,7 +8,7 @@ import Loading from "./Loading";
 export default function Posts() {
   const [location, setLocation] = useState([]);
   const [currentPageUrl, setCurrentPageUrl] = useState(
-    "https://pokeapi.co/api/v2/location?offset=5&limit=5"
+    "https://pokeapi.co/api/v2/location?offset=0&limit=5"
   );
   const [nextPageUrl, setNextPageUrl] = useState();
   const [prevPageUrl, setPrevPageUrl] = useState();

@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import vtg from "../images/vtg-logo.svg";
 
-export default function Header() {
+export default function FilterHead() {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
   const history = useHistory();
@@ -24,9 +24,6 @@ export default function Header() {
     <div>
       <div className="header">
         <img className="vtg" src={vtg} alt="Vacations-ToGo" />
-        <div id='page'>
-        <h1>Home</h1>
-        </div>
         <div className="updatediv">
           <DropdownButton id="dropdown-basic-button" title="Menu">
             <Dropdown.Item id="menu" >
@@ -36,8 +33,8 @@ export default function Header() {
               <Link to="/update-profile" id="update" className="btn btn-primary m-3">
                 Update profile
               </Link>
-              <Link to="/filter" id="update" className="btn btn-primary m-3">
-                Search Locations
+              <Link to="/" id="update" className="btn btn-primary m-3">
+                Home
               </Link>
               <Button
                 id="signout"

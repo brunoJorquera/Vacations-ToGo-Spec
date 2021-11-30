@@ -13,7 +13,7 @@ export default function Locations({ location }) {
             <img id="l-img" src={data[Math.floor(Math.random() * data.length)].url} alt="yes" />
             <div id="lorem">
               <h4>About {l}:</h4>
-              <p>{data[Math.floor(Math.random() * data.length)].description}</p>
+              <p className="p">{data[Math.floor(Math.random() * data.length)].description}</p>
             </div>
           </div>
         </div>

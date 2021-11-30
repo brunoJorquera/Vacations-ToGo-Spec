@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+import React, { useState } from "react";
+import firebase from "../firebase";
+import { useHistory } from "react-router-dom";
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+import vtg from "../images/vtg-logo.svg";
 
-## Available Scripts
+export default function UpdateProfile() {
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
 
-In the project directory, you can run:
+  // current user
+  const user = firebase.auth().currentUser;
 
-### `npm start`
+  // add picks to user collection in firestore
+  const updateProfile = () => {
+    const userUID = user.uid;
+    let db = firebase.firestore();
+    db.collection("user").doc(userUID).update({
+      username: username,
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+      password: password,
+    });
+    history.push("/");
+  };
+  return (
+    <div className="dash">
+      <img className="vtg-open w-100 mb-4" src={vtg} alt="logo" />
+      <div className="card">
+        <form className="form">
+          <h1> Update Profile</h1>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+          <input
+            onChange={(e) => setFirstname(e.target.value)}
+            type="text"
+            placeholder="First Name"
+          />
+          <input
+            onChange={(e) => setLastname(e.target.value)}
+            type="text"
+            placeholder="Last Name"
+          />
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+          <input
+            onChange={(e) => setUsername(e.target.value)}
+            type="text"
+            placeholder="Username"
+          />
+          <input
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            placeholder="New Email"
+          />
+          <input
+            onChange={(e) => setPassword(e.target.value)}
+            type="Password"
+            placeholder="New Password"
+          />
+          <button type="submit" onClick={updateProfile}>
+            {" "}
+            Save Changes{" "}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
 
-### `npm test`
+  let newUser = auth.createUserWithEmailAndPassword(email, password);
+    newUser.then(function () {
+      let userUID = auth.currentUser.uid
+      let db = firebase.firestore();
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+      db.collection('user').doc(userUID).set({
+        email: email,
+        username: null,
+      })
+    })
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
