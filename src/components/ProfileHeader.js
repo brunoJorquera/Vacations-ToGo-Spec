@@ -4,10 +4,11 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import vtg from "../images/vtg-logo.svg";
 
-export default function Header() {
+export default function ProfileHeader() {
   const [error, setError] = useState("");
   const { logout } = useAuth();
   const history = useHistory();
+  const { currentUser } = useAuth();
 
   async function handleLogout() {
     setError("");
@@ -26,14 +27,10 @@ export default function Header() {
         <div className="vtg-container">
           <img className="vtg" src={vtg} alt="Vacations-ToGo" />
         </div>
-        <div id="page">
-          <h1 className="title">Home</h1>
-        </div>
         <div className="updatediv">
           <DropdownButton id="dropdown-basic-button" title="Menu">
-            {/* <strong>Email: {currentUser.email}</strong> */}
-            <Link to="/profile" id="update" className="btn btn-primary m-3">
-              My Profile
+            <Link to="/" id="update" className="btn btn-primary m-3">
+              Home
             </Link>
             <Link to="/filter" id="update" className="btn btn-primary m-3">
               Search Locations

@@ -13,7 +13,7 @@ export default function Results() {
   const [searchData] = useState(Data);
 
   useEffect(() => {
-    axios("https://pokeapi.co/api/v2/location?offset=0&limit=100")
+    axios("https://pokeapi.co/api/v2/location?offset=0&limit=700")
       .then((response) => {
         setAllData(response.data);
         setFilteredData(response.data.results);
@@ -33,7 +33,7 @@ export default function Results() {
   };
 
   return (
-    <div id="">
+    <div id="home">
       <form id="search-btns">
         <h4>Popular Locations</h4>
         <input
