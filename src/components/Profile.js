@@ -5,7 +5,7 @@ import Random from './Random'
 
 export default function Profile() {
   return (
-    <Container className="dash">
+    <Container className="dashRando">
       <ProfileHeader />
       <Random />
     </Container>

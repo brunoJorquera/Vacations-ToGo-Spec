@@ -73,8 +73,7 @@ export default function Random() {
   };
 
   return (
-    <Container id="dashRando">
-      <div id="postsRando">
+    <Container class="dashRando">
         <div id="userProfile">
           <Link
             to="/update-profile"
@@ -86,6 +85,7 @@ export default function Random() {
           <strong id="user1">Signed in as:</strong>
             <strong id="user2">{currentUser.email}</strong>
         </div>
+      <div id="postsRando">
         <div id="profilePost">
           <button
             id="update"

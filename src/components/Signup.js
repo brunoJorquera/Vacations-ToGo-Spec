@@ -35,7 +35,7 @@ export default function Signup() {
 
   return (
     <Container className="logins">
-      <div className="form w-50">
+      <div id="center" className="form w-50">
         <img className="vtg-open w-100 mb-4" src={vtg} alt="logo" />
         <Card className="card">
           <Card.Body>
